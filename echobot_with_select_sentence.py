@@ -32,8 +32,8 @@ def get_update(root_url: str, good_codes: tuple, token1: str):
     url = f"{root_url}{token1}/getUpdates"
     result = requests.get(url)
     if result.status_code in good_codes:
-        # print("all is ok")
-        # print(result.json())
+        print("all is ok")
+        print(result.json())
         return result.json()
     else:
         print(f"request failed with error {result.status_code}")
@@ -58,25 +58,25 @@ def send_msg(root_url: str, good_codes: tuple, token1: str, chat_id: int, msg: o
         print(f"request failed with error {result.status_code}")
 
 
-def check_word(sentences_list: dict, word: str, usrlvl: int, chat_id: int):
+def check_word(sentences_list: dict, word: str, usrlvl: int, chat_id: int, root_url, good_codes, token):
     found_msg = False
     for sentence in sentences_list:
         if word in sentence["text"]:
             found_msg = True
             if sentence["level"] == usrlvl:
-                send_msg(token, chat_id,
+                send_msg(root_url, good_codes, token, chat_id,
                          msg=sentence["text"])
             else:
-                send_msg(token, chat_id,
+                send_msg(root_url, good_codes, token, chat_id,
                          msg="I found sentence but your level doesn't match")
 
     if not found_msg:
-        send_msg(token, chat_id,
+        send_msg(root_url, good_codes, token, chat_id,
              msg=f"Sorry, no sentence with {word} found")
 
 def validate_user(users: list, update: dict, usr_level: int):
     user_exist = False
-    for user in users1:
+    for user in users:
         if user["user_id"] == update["user_id"]:
             user_exist = True
     if not user_exist:
@@ -102,9 +102,10 @@ def main():
         # check if start word
         if update["text"] == "/start" and last_message_id != update["message_id"]:
             last_message_id = update["message_id"]
-            send_msg(token, chat_id, msg="Enter your English level (1 - Beginner, 2 - Intermediate, 3 - Advanced)")
+            send_msg(root_url, good_codes, token, chat_id,
+                     msg="Enter your English level (1 - Beginner, 2 - Intermediate, 3 - Advanced)")
 
-        if format_update(get_update(token))["text"] in ("1", "2", "3") and last_message_id != update["message_id"]:
+        if format_update(get_update(root_url, good_codes, token))["text"] in ("1", "2", "3") and last_message_id != update["message_id"]:
             last_message_id = update["message_id"]
             usr_level = int(update["text"])
             validate_user(users, update, usr_level)
@@ -116,7 +117,7 @@ def main():
             for user in users:
                 if user["user_id"] == update["user_id"]:
                     usr_level = user["usr_lvl"]
-                    check_word(sentences, update["text"], usr_level, chat_id)
+                    check_word(sentences, update["text"], usr_level, chat_id, root_url, good_codes, token,)
 
 
 main()
