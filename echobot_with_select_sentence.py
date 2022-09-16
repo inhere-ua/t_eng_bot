@@ -31,18 +31,23 @@ def load_sentences():
 def get_update(root_url: str, good_codes: tuple, token1: str):
     url = f"{root_url}{token1}/getUpdates"
     result = requests.get(url)
+
+    # check the bot status
     if result.status_code in good_codes:
-        print("all is ok")
-        print(result.json())
+        # print("all is ok")
+        # print(result.json())
         return result.json()
     else:
         print(f"request failed with error {result.status_code}")
 
 
 def format_update(update: dict):
+
+    # extract user message data
     user_id = update["result"][-1]["message"]["from"]["id"]
     chat_id = update["result"][-1]["message"]["chat"]["id"]
     text = update["result"][-1]["message"]["text"]
+
     # print(update)
     message_id = update["result"][-1]["update_id"]
 
@@ -51,21 +56,26 @@ def format_update(update: dict):
 
 def send_msg(root_url: str, good_codes: tuple, token1: str, chat_id: int, msg: object):
     url = f"{root_url}{token1}/sendMessage"
+
+    # send message
     result = requests.post(url, data={"chat_id": chat_id, "text": msg})
+
+    # check messange sent status
     if result.status_code in good_codes:
         print("message sent ok")
     else:
         print(f"request failed with error {result.status_code}")
 
 
-def check_word(sentences_list: dict, word: str, usrlvl: int, chat_id: int, root_url, good_codes, token):
+def check_word(sentences: dict, word: str, usrlvl: int, chat_id: int, root_url, good_codes, token):
     found_msg = False
-    for sentence in sentences_list:
-        if word in sentence["text"]:
+    print("keyword: ", word)
+    for key in sentences.keys():
+        if word in sentences[key]["text"]:
             found_msg = True
-            if sentence["level"] == usrlvl:
+            if sentences[key]["level"] == usrlvl:
                 send_msg(root_url, good_codes, token, chat_id,
-                         msg=sentence["text"])
+                         msg=sentences[key]["text"])
             else:
                 send_msg(root_url, good_codes, token, chat_id,
                          msg="I found sentence but your level doesn't match")
@@ -73,6 +83,10 @@ def check_word(sentences_list: dict, word: str, usrlvl: int, chat_id: int, root_
     if not found_msg:
         send_msg(root_url, good_codes, token, chat_id,
              msg=f"Sorry, no sentence with {word} found")
+
+    send_msg(root_url, good_codes, token, chat_id,
+             msg=f"Enter another keyword, please")
+
 
 def validate_user(users: list, update: dict, usr_level: int):
     user_exist = False
@@ -84,7 +98,7 @@ def validate_user(users: list, update: dict, usr_level: int):
                 "usr_lvl": usr_level}
         users.append(user)
         # print(users)
-        print("user is added")
+        # print("user is added")
 
 
 def main():
@@ -92,6 +106,7 @@ def main():
     token = "5457303465:AAHgmUNybFaABHK7xPXixk571hdzKfyitT8"
     good_codes = (200, 201, 202, 203, 204)
     sentences = load_sentences()
+    print(sentences)
     users = []
     last_message_id = 0
     update = format_update(get_update(root_url, good_codes, token))
