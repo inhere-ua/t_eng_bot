@@ -83,6 +83,10 @@ def validate_user(users: list, update: dict, usr_level: int):
         user = {"user_id": update["user_id"], "chat_id": update["chat_id"],
                 "usr_lvl": usr_level}
         users.append(user)
+        # here to save user in db
+
+
+
         # print(users)
         print("user is added")
 
@@ -105,13 +109,16 @@ def main():
             send_msg(root_url, good_codes, token, chat_id,
                      msg="Enter your English level (1 - Beginner, 2 - Intermediate, 3 - Advanced)")
 
+        # ask for user level if not known
         if format_update(get_update(root_url, good_codes, token))["text"] in ("1", "2", "3") and last_message_id != update["message_id"]:
             last_message_id = update["message_id"]
             usr_level = int(update["text"])
             validate_user(users, update, usr_level)
 
+            # after user level is processed, ask for keyword to search
             send_msg(root_url, good_codes, token, chat_id, msg="Enter the keyword")
 
+        # asl
         if last_message_id != update["message_id"]:
             last_message_id = update["message_id"]
             for user in users:
