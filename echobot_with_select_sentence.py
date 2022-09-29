@@ -30,7 +30,12 @@ def load_sentences():
 # check bot active
 def get_update(root_url: str, good_codes: tuple, token1: str):
     url = f"{root_url}{token1}/getUpdates"
-    result = requests.get(url)
+
+    try:
+        result = requests.get(url)
+    except Exception as e:
+        print(f"Get update failed due to '{e}' error")
+        return
 
     # check the bot status
     if result.status_code in good_codes:
