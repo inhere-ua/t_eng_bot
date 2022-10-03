@@ -24,24 +24,26 @@ import requests
 import time
 from threading import Thread
 
-class Thread_return(Thread):
 
-    # initiating subclass with default parameters
+# creating subclass of Thread to get the returned value in join() method
+class ThreadReturnValue(Thread):
+
+    # initiating default parameters
     def __init__(self, group=None, target=None, name=None,
-                 args=(), kwargs={}, Verbose=None):
+                 args=(), kwargs={}):
         Thread.__init__(self, group, target, name, args, kwargs)
         self._return = None
 
     # run the target function
     def run(self):
         if self._target is not None:
-            self._return = self._target(*self._args,
-                                                **self._kwargs)
+            self._return = self._target(*self._args, **self._kwargs)
 
     # tuning join method to do "return" from called function
     def join(self, *args):
         Thread.join(self, *args)
         return self._return
+
 
 # ЭТОТ КЛАСС НЕ ТРОГАТЬ! Это простейший декоратор для измерения времени работы.
 class SpeedTest:
@@ -69,17 +71,17 @@ def get_currency_price(currency):
 
 # Внутри этой функции реализовать многопточную отправку запросов к API Kucoin.
 @SpeedTest
-def crypto_prices(currencies):
+def crypto_prices(currencies_list):
     res = {}
 
     # initializing empty list of the threads objects to run
     price_list = []
 
-    for currency in currencies:
+    for currency in currencies_list:
 
         # initialize thread for each currency in currencies
-        price_thr = Thread_return(target=get_currency_price, args=(currency, ),
-                                  name=currency)
+        price_thr = ThreadReturnValue(target=get_currency_price,
+                                      args=(currency, ), name=currency)
 
         # add thread to the threads list
         price_list.append(price_thr)
@@ -93,6 +95,6 @@ def crypto_prices(currencies):
 
     return res
 
+
 currencies = ['BTC', 'ETH', 'LTC', 'SOL']
 print(crypto_prices(currencies))
-
