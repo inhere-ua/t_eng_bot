@@ -51,7 +51,8 @@ def format_update(update: dict):
     # print(update)
     message_id = update["result"][-1]["update_id"]
 
-    return {"user_id": user_id, "chat_id": chat_id, "text": text, "message_id": message_id}
+    return {"user_id": user_id, "chat_id": chat_id,
+            "text": text, "message_id": message_id}
 
 
 # send message function
@@ -117,7 +118,7 @@ def validate_user(users: list, update: dict, usr_level: int):
 # run main program
 def main():
 
-    # constant variables
+    # define constant variables
     root_url = "https://api.telegram.org/bot"
     token = "5457303465:AAHgmUNybFaABHK7xPXixk571hdzKfyitT8"
     good_codes = (200, 201, 202, 203, 204)
@@ -134,29 +135,41 @@ def main():
 
     while True:
         update = format_update(get_update(root_url, good_codes, token))
+
         # check if start word is typed
         if update["text"] == "/start" and last_message_id != update["message_id"]:
             last_message_id = update["message_id"]
             send_msg(root_url, good_codes, token, chat_id,
-                     msg="Enter your English level (1 - Beginner, 2 - Intermediate, 3 - Advanced)")
+                     msg="Enter your English level (1 - Beginner, "
+                         "2 - Intermediate, 3 - Advanced)")
 
         # ask for user level if not known
-        if format_update(get_update(root_url, good_codes, token))["text"] in ("1", "2", "3") and last_message_id != update["message_id"]:
+        if format_update(get_update(root_url, good_codes, token))["text"] \
+                in ("1", "2", "3") and last_message_id != update["message_id"]:
             last_message_id = update["message_id"]
             usr_level = int(update["text"])
             validate_user(users, update, usr_level)
 
             # ask for keyword input
-            send_msg(root_url, good_codes, token, chat_id, msg="Enter the keyword")
+            send_msg(root_url, good_codes, token, chat_id,
+                     msg="Enter the keyword")
+
+        else:
+            send_msg(root_url, good_codes, token, chat_id,
+                     msg="Wrong level received.")
+
+            send_msg(root_url, good_codes, token, chat_id,
+                     msg="Enter your English level (1 - Beginner, "
+                         "2 - Intermediate, 3 - Advanced)")
 
         # if user input received
-
         if last_message_id != update["message_id"]:
             last_message_id = update["message_id"]
             for user in users:
                 if user["user_id"] == update["user_id"]:
                     usr_level = user["usr_lvl"]
-                    check_word(sentences, update["text"], usr_level, chat_id, root_url, good_codes, token,)
+                    check_word(sentences, update["text"], usr_level, chat_id,
+                               root_url, good_codes, token,)
 
 
 main()
