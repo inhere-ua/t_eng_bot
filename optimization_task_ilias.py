@@ -22,7 +22,26 @@
 """
 import requests
 import time
-import threading
+from threading import Thread
+
+class Thread_return(Thread):
+
+    # initiating subclass with default parameters
+    def __init__(self, group=None, target=None, name=None,
+                 args=(), kwargs={}, Verbose=None):
+        Thread.__init__(self, group, target, name, args, kwargs)
+        self._return = None
+
+    # run the target function
+    def run(self):
+        if self._target is not None:
+            self._return = self._target(*self._args,
+                                                **self._kwargs)
+
+    # tuning join method to do "return" from called function
+    def join(self, *args):
+        Thread.join(self, *args)
+        return self._return
 
 # ЭТОТ КЛАСС НЕ ТРОГАТЬ! Это простейший декоратор для измерения времени работы.
 class SpeedTest:
@@ -50,65 +69,30 @@ def get_currency_price(currency):
 
 # Внутри этой функции реализовать многопточную отправку запросов к API Kucoin.
 @SpeedTest
-# def crypto_prices(currencies):
-#     pool = Pool(20)
-#     res = pool.map(get_currency_price, currencies)
-#     pool.close()
-#     pool.join()
-#     return res
-
 def crypto_prices(currencies):
     res = {}
-    for currency in currencies:
-        price = get_currency_price(currency)
-        res[currency] = price
-    return res
 
+    # initializing empty list of the threads objects to run
+    price_list = []
+
+    for currency in currencies:
+
+        # initialize thread for each currency in currencies
+        price_thr = Thread_return(target=get_currency_price, args=(currency, ),
+                                  name=currency)
+
+        # add thread to the threads list
+        price_list.append(price_thr)
+
+        # run current thread
+        price_thr.start()
+
+    # get currency and price data from every run thread
+    for thread in price_list:
+        res[thread.name] = thread.join()
+
+    return res
 
 currencies = ['BTC', 'ETH', 'LTC', 'SOL']
 print(crypto_prices(currencies))
 
-
-
-import threading
-import time
-
-# def get_data(data):
-#     while True:
-#         print(f"[{threading.current_thread().name}] - {data}")
-#         time.sleep(5)
-#
-#
-# # threading.Thread(target=get_data(), args=(str(time.time())),).start()
-#
-# thr = threading.Thread(target=get_data, args=(str(time.time()),), name="thr-1")
-# thr.start()
-#
-# for i in range(100):
-#     print(f"current {i}")
-#     time.sleep(1)
-#
-#     if i % 10 == 0:
-#         print("active thread: ", threading.active_count())
-#         print("enumerate:", threading.enumerate())
-#         print("thr-1 is alive:", thr.is_alive())
-
-def get_data2(data, value):
-    for _ in range(value):
-        print(f"[{threading.current_thread().name}] - {data}")
-        time.sleep(1)
-
-thr_list = []
-
-# initialize several threadings
-for i in range(3):
-    thr = threading.Thread(target=get_data2, args=(str(time.time()), i),
-                           name=f"thr-{i}")
-    thr_list.append(thr)
-    thr.start()
-
-# now let's run multiple threadings
-for i in thr_list:
-    i.join()
-
-print("finish")
