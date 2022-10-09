@@ -20,7 +20,7 @@ class BlogPost:
 	author = ""
 	date = now.strftime("%d/%m/%Y %H:%M:%S")
 
-	def get():
+	def get(self):
 		pass
 
 	def add_text(self, text):
@@ -38,25 +38,24 @@ class BlogPost:
 
 # Из класса BlogPost создаем объект BlogPost()
 
-# print(BlogPost().add_text)
-# print(BlogPost.add_text)
+print(BlogPost().add_text)
+print(BlogPost.add_text)
 
 # BlogPost().get()
 # BlogPost().get()
 
 
-# post_about_pandas = BlogPost()
+post_about_pandas = BlogPost()
 
+# post_1 = BlogPost().add_text("Hello")
+# post_2 = BlogPost().add_text("Another text")
 
 # print(post1.text, post2.text, post3.text)
 # print(post1.add_text("aaaa"), post2.add_text("bbb"), post3.add_text("bbb"))
 # print(post1.text, post2.text, post3.text)
 
-# post_1 = BlogPost().add_text("Hello")
-# post_2 = BlogPost().add_text("Another text")
-
 # BlogPost()
-#BlogPost().add_text("Любой текст поста про панд", None)
+# BlogPost().add_text("Любой текст поста про панд", None)
 # BlogPost()
 
 
@@ -65,13 +64,13 @@ class BlogPost:
 # print(post_about_pandas.date)
 
 # Меняем значения его атрибутов с помощью его же методов.
-# post_about_pandas.add_text("Любой текст поста про панд")
-# post_about_pandas.add_title("Просто заголовок")
+post_about_pandas.add_text("Любой текст поста про панд")
+post_about_pandas.add_title("Просто заголовок")
 
 
-# print(post_about_pandas.title)
-# print(post_about_pandas.text)
-# print(post_about_pandas.date)
+print(post_about_pandas.title)
+print(post_about_pandas.text)
+print(post_about_pandas.date)
 
 # post_about_cowboy_beebop = BlogPost()
 # post_about_cowboy_beebop.add_text("один из множеста текстов про то, какое выдающееся аниме 'Ковбой Бибоп'")
