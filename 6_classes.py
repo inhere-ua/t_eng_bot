@@ -208,10 +208,10 @@ Character - игровой персонаж.
 class NPC:
 	base_hp = 100
 
-	def decrease_hp():
+	def decrease_hp(self):
 		pass
 
-	def increase_hp():
+	def increase_hp(self):
 		pass
 
 
