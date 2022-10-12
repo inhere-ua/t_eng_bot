@@ -1,34 +1,12 @@
 import requests
 import json
-import csv
 
 
-class User:
+class Bot:
+    root_url = "https://api.telegram.org/bot"
 
-
-    def __init__(self):
-        pass
-
-    def ValidateUser(self, users: list, update: dict, usr_level: int):
-        user_exist = False
-
-        for user in users:
-            if user["user_id"] == update["user_id"]:
-                user_exist = True
-
-        if not user_exist:
-            user = {"user_id": update["user_id"],
-                    "chat_id": update["chat_id"],
-                    "usr_lvl": usr_level}
-            users.append(user)
-
-
-class echobot:
-
-    def __init__(self):
-        self.root_url = "https://api.telegram.org/bot"
-        self.token = "5457303465:AAHgmUNybFaABHK7xPXixk571hdzKfyitT8"
-        self.good_codes = (200, 201, 202, 203, 204)
+    def __init__(self, token = "5457303465:AAHgmUNybFaABHK7xPXixk571hdzKfyitT8"):
+        self.token = token
         self.last_msg_id = 0
 
 
@@ -51,7 +29,7 @@ class echobot:
 
 
     # send message function
-    def send_msg(self, root_url: str, good_codes: tuple, token1: str,
+    def SendMsg(self, root_url: str, good_codes: tuple, token1: str,
                  chat_id: int, msg: object):
         url = f"{root_url}{token1}/sendMessage"
 
@@ -62,7 +40,72 @@ class echobot:
             print("message sent ok")
 
         else:
-            print(f"request failed with error {result.status_code}")
+            print(f"request failed with error {self._req_res.status_code}")
+
+
+    # parse available sentences for keyword
+    def CheckWord(self, word: str, usrlvl: int, chat_id: int,
+                   root_url, good_codes, token):
+
+        found_msg = False  # found message flag
+
+        # iterating through the database
+        for key in self.sentencedb.keys():
+            if word in self.sentencedb[key]["text"]:
+                found_msg = True  # once found any match, flag is set True
+
+                # check if user level matches sentence level
+                if self.sentencedb[key]["level"] == usrlvl:
+                    Bot().SendMsg(chat_id=chat_id,
+                             msg=self.sentencedb[key]["text"])
+                else:
+                    Bot().SendMsg(chat_id=chat_id,
+                             msg="I found sentence but your level doesn't match")
+
+        # return no matches result to user
+        if not found_msg:
+            Bot().SendMsg(root_url, good_codes, token, chat_id,
+                     msg=f"Sorry, no sentence with {word} found")
+
+        # ask user for another keywork to search
+        Bot().SendMsg(root_url, good_codes, token, chat_id,
+                 msg=f"Enter another keyword, please")
+
+
+class User:
+
+
+    def __init__(self, userdb_path = 'E:\\db.csv'):
+        self.userdbpath = userdb_path
+
+        with open(self.userdbpath, "r") as file:
+            self.userdb = json.loads(file.read())
+
+    def ValidateUser(self, users: list, update: dict, usr_level: int):
+        user_exist = False
+
+        for user in users:
+            if user["user_id"] == update["user_id"]:
+                user_exist = True
+
+        if not user_exist:
+            user = {"user_id": update["user_id"],
+                    "chat_id": update["chat_id"],
+                    "usr_lvl": usr_level}
+            users.append(user)
+
+
+    def AddUser(self):
+        self.userdb.append()
+
+
+    # save database
+    def SaveDB(self):
+        try:
+            with open(self.userdbpath, "w") as file:
+                json.dump(self.userdb, file, indent=4)
+        except Exception as e:
+            print("Failed to save")
 
 
 class Parser:
@@ -92,7 +135,7 @@ class Parser:
                 i += 1
 
     # extract user_id, chat_id, message_id and message text from update
-    def format_update(self, update: dict):
+    def FormatUpdate(self, update: dict):
 
         user_id = update["result"][-1]["message"]["from"]["id"]
         chat_id = update["result"][-1]["message"]["chat"]["id"]
@@ -104,51 +147,13 @@ class Parser:
         return {"user_id": user_id, "chat_id": chat_id,
                 "text": text, "message_id": message_id}
 
-    # parse available sentences for keyword
-    def CheckWord(self, word: str, usrlvl: int, chat_id: int,
-                   root_url, good_codes, token):
 
-        found_msg = False  # found message flag
-        # print("keyword: ", word)
-
-        # iterating through the database
-        for key in self.sentencedb.keys():
-            if word in self.sentencedb[key]["text"]:
-                found_msg = True  # once found any match, flag is set True
-
-                # check if user level matches sentence level
-                if self.sentencedb[key]["level"] == usrlvl:
-                    send_msg(root_url, good_codes, token, chat_id,
-                             msg=self.sentencedb[key]["text"])
-                else:
-                    send_msg(root_url, good_codes, token, chat_id,
-                             msg="I found sentence but your level doesn't match")
-
-        # return no matches result to user
-        if not found_msg:
-            send_msg(root_url, good_codes, token, chat_id,
-                     msg=f"Sorry, no sentence with {word} found")
-
-        # ask user for another keywork to search
-        send_msg(root_url, good_codes, token, chat_id,
-                 msg=f"Enter another keyword, please")
 
 
 
 
 # run main program
 def main():
-
-    # define constant variables
-    root_url = "https://api.telegram.org/bot"
-    token = "5457303465:AAHgmUNybFaABHK7xPXixk571hdzKfyitT8"
-    good_codes = (200, 201, 202, 203, 204)
-    users = []
-    last_message_id = 0
-
-    # get sentences to look into
-    sentences = load_sentences()
-    # print(sentences)
 
     # get updates if any
     update = format_update(get_update(root_url, good_codes, token))
@@ -193,25 +198,7 @@ def main():
                                root_url, good_codes, token,)
 
 
-# load user database
-class UserDB():
-
-    def __init__(self, userdb_path = 'E:\\db.csv', userdb = []):
-        self.userdbpath = userdb_path
-        self.userdb = userdb
-
-        with open(self.userdbpath, "r") as file:
-            self.userdb = json.loads(file.read())
-
-    def AddUser(self):
-        self.userdb.append()
-
-
-    # save database
-    def SaveDb(self):
-        try:
-            with open(self.userdbpath, "w") as file:
-                json.dump(self.userdb, file, indent=4)
+good_codes = (200, 201, 202, 203, 204)
 
 
 
