@@ -1,0 +1,758 @@
+{
+    "sentence_1": {
+        "text": "Be careful.",
+        "level": 1
+    },
+    "sentence_2": {
+        "text": "Be careful driving.",
+        "level": 1
+    },
+    "sentence_3": {
+        "text": "Can you translate this for me?",
+        "level": 1
+    },
+    "sentence_4": {
+        "text": "Chicago is very different from Boston.",
+        "level": 1
+    },
+    "sentence_5": {
+        "text": "Don't worry.",
+        "level": 1
+    },
+    "sentence_6": {
+        "text": "Everyone knows it.",
+        "level": 1
+    },
+    "sentence_7": {
+        "text": "Everything is ready.",
+        "level": 1
+    },
+    "sentence_8": {
+        "text": "Excellent.",
+        "level": 1
+    },
+    "sentence_9": {
+        "text": "From time to time.",
+        "level": 1
+    },
+    "sentence_10": {
+        "text": "Good idea.",
+        "level": 1
+    },
+    "sentence_11": {
+        "text": "He likes it very much.",
+        "level": 1
+    },
+    "sentence_12": {
+        "text": "Help!",
+        "level": 1
+    },
+    "sentence_13": {
+        "text": "He's coming soon.",
+        "level": 1
+    },
+    "sentence_14": {
+        "text": "He's right.",
+        "level": 1
+    },
+    "sentence_15": {
+        "text": "He's very annoying.",
+        "level": 1
+    },
+    "sentence_16": {
+        "text": "He's very famous.",
+        "level": 1
+    },
+    "sentence_17": {
+        "text": "How are you?",
+        "level": 1
+    },
+    "sentence_18": {
+        "text": "How's work going?",
+        "level": 1
+    },
+    "sentence_19": {
+        "text": "Hurry!",
+        "level": 1
+    },
+    "sentence_20": {
+        "text": "I ate already.",
+        "level": 1
+    },
+    "sentence_21": {
+        "text": "I can't hear you.",
+        "level": 1
+    },
+    "sentence_22": {
+        "text": "I'd like to go for a walk.",
+        "level": 1
+    },
+    "sentence_23": {
+        "text": "I don't know how to use it.",
+        "level": 1
+    },
+    "sentence_24": {
+        "text": "I don't like him.",
+        "level": 1
+    },
+    "sentence_25": {
+        "text": "I don't like it.",
+        "level": 1
+    },
+    "sentence_26": {
+        "text": "I don't speak very well.",
+        "level": 1
+    },
+    "sentence_27": {
+        "text": "I don't understand.",
+        "level": 1
+    },
+    "sentence_28": {
+        "text": "I don't want it.",
+        "level": 1
+    },
+    "sentence_29": {
+        "text": "I don't want that.",
+        "level": 1
+    },
+    "sentence_30": {
+        "text": "I don't want to bother you.",
+        "level": 1
+    },
+    "sentence_31": {
+        "text": "I feel good.",
+        "level": 1
+    },
+    "sentence_32": {
+        "text": "If you need my help, please let me know.",
+        "level": 2
+    },
+    "sentence_33": {
+        "text": "I get off of work at 6.",
+        "level": 1
+    },
+    "sentence_34": {
+        "text": "I have a headache.",
+        "level": 1
+    },
+    "sentence_35": {
+        "text": "I hope you and your wife have a nice trip.",
+        "level": 2
+    },
+    "sentence_36": {
+        "text": "I know.",
+        "level": 1
+    },
+    "sentence_37": {
+        "text": "I like her.",
+        "level": 1
+    },
+    "sentence_38": {
+        "text": "I'll come back later.",
+        "level": 1
+    },
+    "sentence_39": {
+        "text": "I'll pay.",
+        "level": 1
+    },
+    "sentence_40": {
+        "text": "I'll take it.",
+        "level": 1
+    },
+    "sentence_41": {
+        "text": "I'll take you to the bus stop.",
+        "level": 1
+    },
+    "sentence_42": {
+        "text": "I lost my watch.",
+        "level": 1
+    },
+    "sentence_43": {
+        "text": "I love you.",
+        "level": 1
+    },
+    "sentence_44": {
+        "text": "I'm an American.",
+        "level": 1
+    },
+    "sentence_45": {
+        "text": "I'm cleaning my room.",
+        "level": 1
+    },
+    "sentence_46": {
+        "text": "I'm coming to pick you up.",
+        "level": 1
+    },
+    "sentence_47": {
+        "text": "I'm going to leave.",
+        "level": 1
+    },
+    "sentence_48": {
+        "text": "I'm good, and you?",
+        "level": 1
+    },
+    "sentence_49": {
+        "text": "I'm happy.",
+        "level": 1
+    },
+    "sentence_50": {
+        "text": "I'm hungry.",
+        "level": 1
+    },
+    "sentence_51": {
+        "text": "I'm married.",
+        "level": 1
+    },
+    "sentence_52": {
+        "text": "I'm not busy.",
+        "level": 1
+    },
+    "sentence_53": {
+        "text": "I'm not married.",
+        "level": 1
+    },
+    "sentence_54": {
+        "text": "I'm not ready yet.",
+        "level": 1
+    },
+    "sentence_55": {
+        "text": "I'm not sure.",
+        "level": 1
+    },
+    "sentence_56": {
+        "text": "I'm sorry, we're sold out.",
+        "level": 1
+    },
+    "sentence_57": {
+        "text": "I'm thirsty.",
+        "level": 1
+    },
+    "sentence_58": {
+        "text": "I'm very busy. I don't have time now.",
+        "level": 2
+    },
+    "sentence_59": {
+        "text": "I need to change clothes.",
+        "level": 1
+    },
+    "sentence_60": {
+        "text": "I need to go home.",
+        "level": 1
+    },
+    "sentence_61": {
+        "text": "I only want a snack.",
+        "level": 1
+    },
+    "sentence_62": {
+        "text": "Is Mr. Smith an American?",
+        "level": 1
+    },
+    "sentence_63": {
+        "text": "Is that enough?",
+        "level": 1
+    },
+    "sentence_64": {
+        "text": "I think it's very good.",
+        "level": 1
+    },
+    "sentence_65": {
+        "text": "I think it tastes good.",
+        "level": 1
+    },
+    "sentence_66": {
+        "text": "I thought the clothes were cheaper.",
+        "level": 1
+    },
+    "sentence_67": {
+        "text": "It's longer than 2 miles.",
+        "level": 1
+    },
+    "sentence_68": {
+        "text": "I've been here for two days.",
+        "level": 1
+    },
+    "sentence_69": {
+        "text": "I've heard Texas is a beautiful place.",
+        "level": 1
+    },
+    "sentence_70": {
+        "text": "I've never seen that before.",
+        "level": 1
+    },
+    "sentence_71": {
+        "text": "I was about to leave the restaurant when my friends arrived.",
+        "level": 2
+    },
+    "sentence_72": {
+        "text": "Just a little.",
+        "level": 1
+    },
+    "sentence_73": {
+        "text": "Just a moment.",
+        "level": 1
+    },
+    "sentence_74": {
+        "text": "Let me check.",
+        "level": 1
+    },
+    "sentence_75": {
+        "text": "Let me think about it.",
+        "level": 1
+    },
+    "sentence_76": {
+        "text": "Let's go have a look.",
+        "level": 1
+    },
+    "sentence_77": {
+        "text": "Let's practice English.",
+        "level": 1
+    },
+    "sentence_78": {
+        "text": "May I speak to Mrs. Smith please?",
+        "level": 1
+    },
+    "sentence_79": {
+        "text": "More than that.",
+        "level": 1
+    },
+    "sentence_80": {
+        "text": "Never mind.",
+        "level": 1
+    },
+    "sentence_81": {
+        "text": "Next time.",
+        "level": 1
+    },
+    "sentence_82": {
+        "text": "No.",
+        "level": 1
+    },
+    "sentence_83": {
+        "text": "Nonsense.",
+        "level": 1
+    },
+    "sentence_84": {
+        "text": "No, thank you.",
+        "level": 1
+    },
+    "sentence_85": {
+        "text": "Nothing else.",
+        "level": 1
+    },
+    "sentence_86": {
+        "text": "Not recently.",
+        "level": 1
+    },
+    "sentence_87": {
+        "text": "Not yet.",
+        "level": 1
+    },
+    "sentence_88": {
+        "text": "Of course.",
+        "level": 1
+    },
+    "sentence_89": {
+        "text": "Okay.",
+        "level": 1
+    },
+    "sentence_90": {
+        "text": "Please fill out this form.",
+        "level": 1
+    },
+    "sentence_91": {
+        "text": "Please take me to this address.",
+        "level": 1
+    },
+    "sentence_92": {
+        "text": "Please write it down.",
+        "level": 1
+    },
+    "sentence_93": {
+        "text": "Really?",
+        "level": 1
+    },
+    "sentence_94": {
+        "text": "Right here.",
+        "level": 1
+    },
+    "sentence_95": {
+        "text": "Right there.",
+        "level": 1
+    },
+    "sentence_96": {
+        "text": "See you later.",
+        "level": 1
+    },
+    "sentence_97": {
+        "text": "See you tomorrow.",
+        "level": 1
+    },
+    "sentence_98": {
+        "text": "See you tonight.",
+        "level": 1
+    },
+    "sentence_99": {
+        "text": "She's pretty.",
+        "level": 1
+    },
+    "sentence_100": {
+        "text": "Sorry to bother you.",
+        "level": 1
+    },
+    "sentence_101": {
+        "text": "Stop!",
+        "level": 1
+    },
+    "sentence_102": {
+        "text": "Take a chance.",
+        "level": 1
+    },
+    "sentence_103": {
+        "text": "Take it outside.",
+        "level": 1
+    },
+    "sentence_104": {
+        "text": "Tell me.",
+        "level": 1
+    },
+    "sentence_105": {
+        "text": "Thanks for everything.",
+        "level": 1
+    },
+    "sentence_106": {
+        "text": "Thanks for your help.",
+        "level": 1
+    },
+    "sentence_107": {
+        "text": "Thank you.",
+        "level": 1
+    },
+    "sentence_108": {
+        "text": "Thank you miss.",
+        "level": 1
+    },
+    "sentence_109": {
+        "text": "Thank you sir.",
+        "level": 1
+    },
+    "sentence_110": {
+        "text": "Thank you very much.",
+        "level": 1
+    },
+    "sentence_111": {
+        "text": "That looks great.",
+        "level": 1
+    },
+    "sentence_112": {
+        "text": "That's alright.",
+        "level": 1
+    },
+    "sentence_113": {
+        "text": "That's enough.",
+        "level": 1
+    },
+    "sentence_114": {
+        "text": "That's fine.",
+        "level": 1
+    },
+    "sentence_115": {
+        "text": "That's it.",
+        "level": 1
+    },
+    "sentence_116": {
+        "text": "That smells bad.",
+        "level": 1
+    },
+    "sentence_117": {
+        "text": "That's not fair.",
+        "level": 1
+    },
+    "sentence_118": {
+        "text": "That's not right.",
+        "level": 1
+    },
+    "sentence_119": {
+        "text": "That's right.",
+        "level": 1
+    },
+    "sentence_120": {
+        "text": "That's too bad.",
+        "level": 1
+    },
+    "sentence_121": {
+        "text": "That's too many.",
+        "level": 1
+    },
+    "sentence_122": {
+        "text": "That's too much.",
+        "level": 1
+    },
+    "sentence_123": {
+        "text": "The book is under the table.",
+        "level": 1
+    },
+    "sentence_124": {
+        "text": "They'll be right back.",
+        "level": 1
+    },
+    "sentence_125": {
+        "text": "They're the same.",
+        "level": 1
+    },
+    "sentence_126": {
+        "text": "They're very busy.",
+        "level": 1
+    },
+    "sentence_127": {
+        "text": "This doesn't work.",
+        "level": 1
+    },
+    "sentence_128": {
+        "text": "This is very difficult.",
+        "level": 1
+    },
+    "sentence_129": {
+        "text": "This is very important.",
+        "level": 1
+    },
+    "sentence_130": {
+        "text": "Try it.",
+        "level": 1
+    },
+    "sentence_131": {
+        "text": "Very good, thanks.",
+        "level": 1
+    },
+    "sentence_132": {
+        "text": "We like it very much.",
+        "level": 1
+    },
+    "sentence_133": {
+        "text": "Would you take a message please?",
+        "level": 1
+    },
+    "sentence_134": {
+        "text": "Yes, really.",
+        "level": 1
+    },
+    "sentence_135": {
+        "text": "You're beautiful.",
+        "level": 1
+    },
+    "sentence_136": {
+        "text": "You're very nice.",
+        "level": 1
+    },
+    "sentence_137": {
+        "text": "You're very smart.",
+        "level": 1
+    },
+    "sentence_138": {
+        "text": "Your things are all here.",
+        "level": 1
+    },
+    "sentence_139": {
+        "text": "A lovely day, isn\u0432\u0402\u2122t it?",
+        "level": 2
+    },
+    "sentence_140": {
+        "text": "Do i have to?",
+        "level": 2
+    },
+    "sentence_141": {
+        "text": "Can I help you?",
+        "level": 2
+    },
+    "sentence_142": {
+        "text": "How are things going?",
+        "level": 2
+    },
+    "sentence_143": {
+        "text": "Any thing else?",
+        "level": 2
+    },
+    "sentence_144": {
+        "text": "Are you kidding?",
+        "level": 2
+    },
+    "sentence_145": {
+        "text": "Are you sure?",
+        "level": 2
+    },
+    "sentence_146": {
+        "text": "Do you understand me?",
+        "level": 2
+    },
+    "sentence_147": {
+        "text": "Are you done?",
+        "level": 2
+    },
+    "sentence_148": {
+        "text": "Can I ask you something?",
+        "level": 2
+    },
+    "sentence_149": {
+        "text": "Can you please repeat that?",
+        "level": 2
+    },
+    "sentence_150": {
+        "text": "Did you get it?",
+        "level": 2
+    },
+    "sentence_151": {
+        "text": "Do you need anything?",
+        "level": 2
+    },
+    "sentence_152": {
+        "text": "How are you?",
+        "level": 2
+    },
+    "sentence_153": {
+        "text": "How do you feel?",
+        "level": 2
+    },
+    "sentence_154": {
+        "text": "How much is it?",
+        "level": 2
+    },
+    "sentence_155": {
+        "text": "How old are you?",
+        "level": 2
+    },
+    "sentence_156": {
+        "text": "How was your weekend?",
+        "level": 2
+    },
+    "sentence_157": {
+        "text": "Is all good?",
+        "level": 2
+    },
+    "sentence_158": {
+        "text": "Is everything OK?",
+        "level": 2
+    },
+    "sentence_159": {
+        "text": "What are you doing?",
+        "level": 2
+    },
+    "sentence_160": {
+        "text": "What are you talking about?",
+        "level": 2
+    },
+    "sentence_161": {
+        "text": "What are you up to?",
+        "level": 2
+    },
+    "sentence_162": {
+        "text": "What are your hobbies?",
+        "level": 2
+    },
+    "sentence_163": {
+        "text": "What did you say?",
+        "level": 2
+    },
+    "sentence_164": {
+        "text": "What do you need?",
+        "level": 2
+    },
+    "sentence_165": {
+        "text": "What do you think?",
+        "level": 2
+    },
+    "sentence_166": {
+        "text": "What do you want to do?",
+        "level": 2
+    },
+    "sentence_167": {
+        "text": "What do you want?",
+        "level": 2
+    },
+    "sentence_168": {
+        "text": "What\u0432\u0402\u2122s the weather like?",
+        "level": 2
+    },
+    "sentence_169": {
+        "text": "What\u0432\u0402\u2122s your e-mail address?",
+        "level": 2
+    },
+    "sentence_170": {
+        "text": "What is your job?",
+        "level": 2
+    },
+    "sentence_171": {
+        "text": "What\u0432\u0402\u2122s your name?",
+        "level": 2
+    },
+    "sentence_172": {
+        "text": "What\u0432\u0402\u2122s your phone number?",
+        "level": 2
+    },
+    "sentence_173": {
+        "text": "What is going on?",
+        "level": 2
+    },
+    "sentence_174": {
+        "text": "When is the train leaving?",
+        "level": 2
+    },
+    "sentence_175": {
+        "text": "How can I go to the town centre?",
+        "level": 2
+    },
+    "sentence_176": {
+        "text": "Where are you from?",
+        "level": 2
+    },
+    "sentence_177": {
+        "text": "Where are you going?",
+        "level": 2
+    },
+    "sentence_178": {
+        "text": "Where are you?",
+        "level": 2
+    },
+    "sentence_179": {
+        "text": "Where did you get it?",
+        "level": 2
+    },
+    "sentence_180": {
+        "text": "Where do you live?",
+        "level": 2
+    },
+    "sentence_181": {
+        "text": "Are you coming with me?",
+        "level": 2
+    },
+    "sentence_182": {
+        "text": "How long will you stay?",
+        "level": 2
+    },
+    "sentence_183": {
+        "text": "Hello jack. How are you? You look a little bad today, is everything okay?",
+        "level": 3
+    },
+    "sentence_184": {
+        "text": "I am very pleased to meet you, can I please have your phone number?",
+        "level": 3
+    },
+    "sentence_185": {
+        "text": "Hello, I just came to this school. Can I meet you? Where are you from and what do you like, can I learn?",
+        "level": 3
+    },
+    "sentence_186": {
+        "text": "Good afternoon, can I have a menu, please? If I ask, can I have water with my meal? Everything was very nice, I will come again.",
+        "level": 3
+    },
+    "sentence_187": {
+        "text": "I told you the whole incident from the very beginning. Did you understand me? Please say something.",
+        "level": 3
+    },
+    "sentence_188": {
+        "text": "Shall we go to the cinema today? Are you feeling alright? If you want, we can sit at home today.",
+        "level": 3
+    },
+    "sentence_189": {
+        "text": "Could you please give me your address?",
+        "level": 3
+    }
+}
